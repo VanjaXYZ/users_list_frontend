@@ -1,8 +1,15 @@
+"use client";
+import { useRef } from "react";
 import { handleSubmit } from "../actions/createUser";
 
 const CreateUserForm = () => {
+  const ref = useRef<HTMLFormElement>() as any;
+  const onSubmit = async (formData: FormData) => {
+    await handleSubmit(formData);
+    ref.current.reset();
+  };
   return (
-    <form className="flex flex-col gap-4" action={handleSubmit}>
+    <form ref={ref} className="flex flex-col gap-4" action={onSubmit}>
       <input
         type="text"
         name="name"
