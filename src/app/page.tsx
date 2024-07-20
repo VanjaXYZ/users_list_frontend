@@ -1,4 +1,3 @@
-import UsersList from "./components/UsersList";
 import UsersPage from "./users/page";
 
 export default async function Home() {
