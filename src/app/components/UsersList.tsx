@@ -6,8 +6,8 @@ const UsersList = async () => {
   const usersList = await getUsers();
 
   return (
-    <div>
-      <ul>
+    <div className="w-full grid place-items-center">
+      <ul className="w-2/5 divide-y-2 space-y-2">
         {usersList?.map((user: User) => (
           <UserItem user={user} key={user.id} />
         ))}
