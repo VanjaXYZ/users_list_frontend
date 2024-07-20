@@ -9,7 +9,7 @@ const UsersList = async () => {
     <div>
       <ul>
         {usersList?.map((user: User) => (
-          <UserItem user={user} />
+          <UserItem user={user} key={user.id} />
         ))}
       </ul>
     </div>
