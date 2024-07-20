@@ -4,7 +4,7 @@ import CreateUserForm from "../components/CreateUserForm";
 
 const UsersPage = () => {
   return (
-    <div className="border min-h-screen flex flex-col items-center p-12 gap-8">
+    <div className="flex flex-col items-center p-12 gap-8 w-full">
       <CreateUserForm />
       <UsersList />
     </div>
