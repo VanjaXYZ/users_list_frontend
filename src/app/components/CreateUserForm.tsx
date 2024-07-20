@@ -28,7 +28,7 @@ const CreateUserForm = () => {
         placeholder="Age"
         className="px-2 py-1 text-black"
       />
-      <button type="submit" className="bg-white/20 hover:bg-white/40">
+      <button type="submit" className="bg-white/20 rounded hover:bg-white/40">
         Submit
       </button>
     </form>
