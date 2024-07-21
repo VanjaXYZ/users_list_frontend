@@ -34,7 +34,7 @@ const UserItem = ({ user }: { user: User }) => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="px-2 py-1 text-black"
+            className="px-2 py-1 text-black border rounded"
             placeholder="Name"
             autoComplete="on"
           />
@@ -42,7 +42,7 @@ const UserItem = ({ user }: { user: User }) => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="px-2 py-1 text-black"
+            className="px-2 py-1 text-black border rounded"
             placeholder="Email"
             autoComplete="on"
           />
@@ -50,7 +50,7 @@ const UserItem = ({ user }: { user: User }) => {
             type="number"
             value={age}
             onChange={(e) => setAge(Number(e.target.value))}
-            className="px-2 py-1 text-black"
+            className="px-2 py-1 text-black border rounded"
             placeholder="Age"
             autoComplete="on"
           />
@@ -58,33 +58,33 @@ const UserItem = ({ user }: { user: User }) => {
             type="text"
             value={job}
             onChange={(e) => setJob(e.target.value)}
-            className="px-2 py-1 text-black"
+            className="px-2 py-1 text-black border rounded"
             placeholder="Current job"
           />
           <input
             type="number"
             value={workExperience}
             onChange={(e) => setWorkExperience(Number(e.target.value))}
-            className="px-2 py-1 text-black"
+            className="px-2 py-1 text-black border rounded"
             placeholder="Work experience"
             autoComplete="on"
           />
           <input
             value={hobbies}
             onChange={(e) => setHobbies(e.target.value)}
-            className="px-2 py-1 text-black"
+            className="px-2 py-1 text-black border rounded"
             placeholder="Hobbies (separate with commas)"
             type="text"
           />
           <div className="flex justify-end gap-2">
             <button
-              className="bg-white/20 px-2 py-1 rounded hover:bg-white/40"
+              className="border rounded bg-teal-700 text-white font-bold uppercase tracking-widest px-4 py-1"
               onClick={handleUpdate}
             >
               Save
             </button>
             <button
-              className="bg-white/20 px-2 py-1 rounded hover:bg-white/40"
+              className="border rounded bg-teal-700 text-white font-bold uppercase tracking-widest px-4 py-1"
               onClick={() => setIsEditing(false)}
             >
               Cancel
@@ -94,41 +94,43 @@ const UserItem = ({ user }: { user: User }) => {
       ) : (
         <>
           <div className="flex">
-            <span className="w-[200px]">Name:</span>
+            <span className="w-[200px] font-semibold">Name:</span>
             <span>{user.name}</span>
           </div>
           <div className="flex">
-            <span className="w-[200px]">Email:</span>
+            <span className="w-[200px] font-semibold">Email:</span>
             <span>{user.email}</span>
           </div>
           <div className="flex">
-            <span className="w-[200px]">Age:</span>
-            <span>{user.age}</span>
+            <span className="w-[200px] font-semibold">Age:</span>
+            <span>
+              {user.age} {`${user.age <= 1 ? "year" : "years"}`}
+            </span>
           </div>
           <div className="flex">
-            <span className="w-[200px]">Current job:</span>
+            <span className="w-[200px] font-semibold">Current job:</span>
             <span>{user.job}</span>
           </div>
           <div className="flex">
-            <span className="w-[200px]">Work experience:</span>
+            <span className="w-[200px] font-semibold">Work experience:</span>
             <span>
               {user.work_experience}{" "}
               {`${user.work_experience <= 1 ? "year" : "years"}`}
             </span>
           </div>
           <div className="flex">
-            <span className="w-[200px]">Hobbies:</span>
+            <span className="w-[200px] font-semibold">Hobbies:</span>
             <span>{user.hobbies}</span>
           </div>
           <div className="flex gap-2 justify-end py-2">
             <button
-              className="bg-white/20 px-2 rounded hover:bg-white/40"
+              className="border rounded bg-teal-700 text-white font-bold uppercase tracking-widest px-4 py-1"
               onClick={() => setIsEditing(true)}
             >
               Update
             </button>
             <button
-              className="bg-white/20 px-2 rounded hover:bg-white/40"
+              className="border rounded bg-teal-700 text-white font-bold uppercase tracking-widest px-4 py-1"
               onClick={() => handleDeleteUser(user.id)}
             >
               Remove
