@@ -35,6 +35,7 @@ const UserItem = ({ user }: { user: User }) => {
             onChange={(e) => setName(e.target.value)}
             className="px-2 py-1 text-black"
             placeholder="Name"
+            autoComplete="on"
           />
           <input
             type="email"
@@ -42,6 +43,7 @@ const UserItem = ({ user }: { user: User }) => {
             onChange={(e) => setEmail(e.target.value)}
             className="px-2 py-1 text-black"
             placeholder="Email"
+            autoComplete="on"
           />
           <input
             type="number"

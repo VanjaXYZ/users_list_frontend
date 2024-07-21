@@ -15,12 +15,14 @@ const CreateUserForm = () => {
         name="name"
         placeholder="Name"
         className="px-2 py-1 text-black"
+        autoComplete="on"
       />
       <input
         type="text"
         name="email"
         placeholder="Email"
         className="px-2 py-1 text-black"
+        autoComplete="on"
       />
       <input
         type="number"
