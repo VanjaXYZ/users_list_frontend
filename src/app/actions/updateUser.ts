@@ -13,6 +13,9 @@ export const handleUpdateUser = async (id: number, formData: FormData) => {
         name: formData.get("name"),
         email: formData.get("email"),
         age: formData.get("age"),
+        job: formData.get("job"),
+        work_experience: formData.get("work_experience"),
+        hobbies: formData.get("hobbies"),
       }),
     });
     revalidatePath("/users");
