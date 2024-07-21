@@ -9,7 +9,7 @@ const CreateUserForm = () => {
     ref.current.reset();
   };
   return (
-    <form ref={ref} className="flex flex-col gap-4" action={onSubmit}>
+    <form ref={ref} className="grid grid-cols-2 gap-4" action={onSubmit}>
       <input
         type="text"
         name="name"
@@ -26,6 +26,24 @@ const CreateUserForm = () => {
         type="number"
         name="age"
         placeholder="Age"
+        className="px-2 py-1 text-black"
+      />
+      <input
+        type="text"
+        name="job"
+        placeholder="Current job"
+        className="px-2 py-1 text-black"
+      />
+      <input
+        type="number"
+        name="work_experience"
+        placeholder="Work experience"
+        className="px-2 py-1 text-black"
+      />
+      <input
+        type="text"
+        name="hobbies"
+        placeholder="Hobbies"
         className="px-2 py-1 text-black"
       />
       <button type="submit" className="bg-white/20 rounded hover:bg-white/40">
