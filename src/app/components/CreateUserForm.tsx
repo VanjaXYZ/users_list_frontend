@@ -5,6 +5,14 @@ import { handleSubmit } from "../actions/createUser";
 const CreateUserForm = () => {
   const ref = useRef<HTMLFormElement>() as any;
   const onSubmit = async (formData: FormData) => {
+    const hobbiesString = formData.get("hobbies") as string;
+    const hobbiesToArray = hobbiesString
+      .split(",")
+      .map((hoby: string) => hoby.trim());
+
+    hobbiesToArray.forEach((hobby: string) => {
+      formData.append("hobbies", hobby);
+    });
     await handleSubmit(formData);
     ref.current.reset();
   };
