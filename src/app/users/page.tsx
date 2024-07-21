@@ -1,6 +1,11 @@
 import React from "react";
-import UsersList from "../components/UsersList";
-import CreateUserForm from "../components/CreateUserForm";
+import UsersList from "../components/(create-user)/UsersList";
+import CreateUserForm from "../components/(create-user)/CreateUserForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Users",
+};
 
 const UsersPage = () => {
   return (
