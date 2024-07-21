@@ -5,13 +5,13 @@ const ActionButtons = () => {
   return (
     <div>
       <Link
-        href={"/users"}
+        href={"/auth/login"}
         className="border rounded bg-teal-700 hover:bg-teal-500 text-white font-bold uppercase tracking-widest px-4 py-1"
       >
         Login
       </Link>
       <Link
-        href={"/"}
+        href={"/auth/signup"}
         className="border rounded bg-teal-700 hover:bg-teal-500 text-white font-bold uppercase tracking-widest px-4 py-1"
       >
         Signup

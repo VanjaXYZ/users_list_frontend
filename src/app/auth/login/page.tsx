@@ -8,6 +8,7 @@ const Page = () => {
         <input type="text" name="name" />
         <input type="password" name="password" />
       </div>
+      <button type="submit">Login</button>
     </form>
   );
 };

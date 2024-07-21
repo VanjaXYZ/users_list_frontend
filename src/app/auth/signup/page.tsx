@@ -15,6 +15,7 @@ const Page = () => {
           placeholder="Work experience"
         />
         <input type="text" name="hobbies" placeholder="Hobbies" />
+        <button type="submit">Signup</button>
       </div>
     </form>
   );
