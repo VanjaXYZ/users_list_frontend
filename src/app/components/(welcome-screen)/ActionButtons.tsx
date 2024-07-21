@@ -3,7 +3,7 @@ import React from "react";
 
 const ActionButtons = () => {
   return (
-    <div>
+    <div className="flex gap-4">
       <Link
         href={"/auth/login"}
         className="border rounded bg-teal-700 hover:bg-teal-500 text-white font-bold uppercase tracking-widest px-4 py-1"
