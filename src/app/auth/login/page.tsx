@@ -1,3 +1,4 @@
+import LoginForm from "@/app/components/(auth)/LoginForm";
 import { Metadata } from "next";
 import React from "react";
 
@@ -6,16 +7,7 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
-  return (
-    <form>
-      <h3>Welcome</h3>
-      <div>
-        <input type="text" name="name" />
-        <input type="password" name="password" />
-      </div>
-      <button type="submit">Login</button>
-    </form>
-  );
+  return <LoginForm />;
 };
 
 export default Page;
