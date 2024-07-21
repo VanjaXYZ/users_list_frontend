@@ -58,8 +58,9 @@ const UserItem = ({ user }: { user: User }) => {
         </div>
       ) : (
         <>
-          <span className="">{user.name}</span>
-          <div className="flex gap-2 justify-end">
+          <span className="">Name: {user.name}</span>
+          <span className="font-light">E-mail: {user.email}</span>
+          <div className="flex gap-2 justify-end py-2">
             <button
               className="bg-white/20 px-2 rounded hover:bg-white/40"
               onClick={() => setIsEditing(true)}
