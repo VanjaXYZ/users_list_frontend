@@ -1,6 +1,7 @@
 "use client";
 import { handleSubmit } from "@/app/actions/createUser";
 import { useRef } from "react";
+import { USER_ROLES } from "../(shared)/user_roles";
 
 const CreateUserForm = () => {
   const ref = useRef<HTMLFormElement>() as any;
@@ -8,8 +9,6 @@ const CreateUserForm = () => {
     await handleSubmit(formData);
     ref.current.reset();
   };
-
-  const roles = ["ADMIN", "USER"];
 
   return (
     <form ref={ref} action={onSubmit}>
@@ -68,7 +67,7 @@ const CreateUserForm = () => {
           <option value="" disabled className="italic">
             Select role
           </option>
-          {roles.map((role: string) => (
+          {USER_ROLES.map((role: string) => (
             <option key={role} value={role}>
               {role}
             </option>

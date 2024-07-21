@@ -11,6 +11,7 @@ export const handleSubmit = async (formData: FormData) => {
       job: formData.get("job"),
       work_experience: parseInt(formData.get("work_experience") as string), // Uveri se da age bude broj
       hobbies: formData.get("hobbies"),
+      role: formData.get("role"),
     };
 
     let response = await fetch(`${Config.baseUrl}/users`, {

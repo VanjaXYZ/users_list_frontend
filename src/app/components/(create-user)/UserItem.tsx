@@ -2,7 +2,8 @@
 import { handleDeleteUser } from "@/app/actions/deleteUser";
 import { handleUpdateUser } from "@/app/actions/updateUser";
 import { User } from "@/app/types/userType";
-import React, { useState } from "react";
+import { useState } from "react";
+import { USER_ROLES } from "../(shared)/user_roles";
 
 const UserItem = ({ user }: { user: User }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -12,6 +13,7 @@ const UserItem = ({ user }: { user: User }) => {
   const [job, setJob] = useState(user.job);
   const [workExperience, setWorkExperience] = useState(user.work_experience);
   const [hobbies, setHobbies] = useState(user.hobbies);
+  const [role, setRole] = useState(user.role);
 
   const handleUpdate = async () => {
     const updatedUser = {
@@ -21,6 +23,7 @@ const UserItem = ({ user }: { user: User }) => {
       job,
       work_experience: workExperience,
       hobbies: hobbies,
+      role: role,
     };
     await handleUpdateUser(user.id, updatedUser);
     setIsEditing(false);
@@ -76,6 +79,22 @@ const UserItem = ({ user }: { user: User }) => {
             placeholder="Hobbies (separate with commas)"
             type="text"
           />
+          <select
+            className="px-2 py-1 text-black border rounded"
+            name="role"
+            value={role}
+            onChange={(e: any) => setRole(e.target.value)}
+            required
+          >
+            <option value="" disabled className="italic">
+              Select role
+            </option>
+            {USER_ROLES.map((role: string) => (
+              <option key={role} value={role}>
+                {role}
+              </option>
+            ))}
+          </select>
           <div className="flex justify-end gap-2">
             <button
               className="border rounded bg-teal-700 text-white font-bold uppercase tracking-widest px-4 py-1"
@@ -93,6 +112,10 @@ const UserItem = ({ user }: { user: User }) => {
         </div>
       ) : (
         <>
+          <div className="flex">
+            <span className="w-[200px] font-semibold">Role:</span>
+            <span>{user.role}</span>
+          </div>
           <div className="flex">
             <span className="w-[200px] font-semibold">Name:</span>
             <span>{user.name}</span>

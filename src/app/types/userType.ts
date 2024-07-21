@@ -6,4 +6,5 @@ export type User = {
   job: string;
   work_experience: number;
   hobbies?: string;
+  role: string;
 };
