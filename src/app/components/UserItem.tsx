@@ -113,7 +113,7 @@ const UserItem = ({ user }: { user: User }) => {
             <span className="w-[200px]">Work experience:</span>
             <span>
               {user.work_experience}{" "}
-              {`${user.work_experience < 1 ? "year" : "years"}`}
+              {`${user.work_experience <= 1 ? "year" : "years"}`}
             </span>
           </div>
           <div className="flex">
