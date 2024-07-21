@@ -8,6 +8,9 @@ const CreateUserForm = () => {
     await handleSubmit(formData);
     ref.current.reset();
   };
+
+  const roles = ["ADMIN", "USER"];
+
   return (
     <form ref={ref} action={onSubmit}>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -17,6 +20,7 @@ const CreateUserForm = () => {
           placeholder="Name"
           className="px-2 py-1 text-black border rounded"
           autoComplete="on"
+          required
         />
         <input
           type="text"
@@ -24,6 +28,7 @@ const CreateUserForm = () => {
           placeholder="Email"
           className="px-2 py-1 text-black border rounded"
           autoComplete="on"
+          required
         />
         <input
           type="number"
@@ -31,12 +36,14 @@ const CreateUserForm = () => {
           placeholder="Age"
           className="px-2 py-1 text-black border rounded"
           autoComplete="on"
+          required
         />
         <input
           type="text"
           name="job"
           placeholder="Current job"
           className="px-2 py-1 text-black border rounded"
+          required
         />
         <input
           type="number"
@@ -44,6 +51,7 @@ const CreateUserForm = () => {
           placeholder="Work experience"
           className="px-2 py-1 text-black border rounded"
           autoComplete="on"
+          required
         />
         <input
           type="text"
@@ -51,6 +59,21 @@ const CreateUserForm = () => {
           placeholder="Hobbies"
           className="px-2 py-1 text-black border rounded"
         />
+        <select
+          className="px-2 py-1 text-black border rounded"
+          name="role"
+          defaultValue={""}
+          required
+        >
+          <option value="" disabled className="italic">
+            Select role
+          </option>
+          {roles.map((role: string) => (
+            <option key={role} value={role}>
+              {role}
+            </option>
+          ))}
+        </select>
       </div>
       <div className="py-2">
         <button
