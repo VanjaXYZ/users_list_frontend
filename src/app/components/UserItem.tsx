@@ -49,6 +49,7 @@ const UserItem = ({ user }: { user: User }) => {
             onChange={(e) => setAge(Number(e.target.value))}
             className="px-2 py-1 text-black"
             placeholder="Age"
+            autoComplete="on"
           />
           <input
             type="text"
@@ -63,6 +64,7 @@ const UserItem = ({ user }: { user: User }) => {
             onChange={(e) => setWorkExperience(Number(e.target.value))}
             className="px-2 py-1 text-black"
             placeholder="Work experience"
+            autoComplete="on"
           />
           <input
             type="text"

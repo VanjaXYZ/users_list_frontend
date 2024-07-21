@@ -27,6 +27,7 @@ const CreateUserForm = () => {
         name="age"
         placeholder="Age"
         className="px-2 py-1 text-black"
+        autoComplete="on"
       />
       <input
         type="text"
@@ -39,6 +40,7 @@ const CreateUserForm = () => {
         name="work_experience"
         placeholder="Work experience"
         className="px-2 py-1 text-black"
+        autoComplete="on"
       />
       <input
         type="text"
