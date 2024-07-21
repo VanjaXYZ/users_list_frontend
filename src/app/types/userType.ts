@@ -5,5 +5,5 @@ export type User = {
   age: number;
   job: string;
   work_experience: number;
-  hobbies: string[];
+  hobbies?: string;
 };

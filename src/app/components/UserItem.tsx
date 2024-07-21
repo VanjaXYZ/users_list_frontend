@@ -14,14 +14,15 @@ const UserItem = ({ user }: { user: User }) => {
   const [hobbies, setHobbies] = useState(user.hobbies);
 
   const handleUpdate = async () => {
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("age", age.toString());
-    formData.append("job", job);
-    formData.append("work_experience", workExperience.toString());
-    // formData.append("hobbies", hobbies);
-    await handleUpdateUser(user.id, formData);
+    const updatedUser = {
+      name,
+      email,
+      age,
+      job,
+      work_experience: workExperience,
+      hobbies: hobbies,
+    };
+    await handleUpdateUser(user.id, updatedUser);
     setIsEditing(false);
   };
 
@@ -69,13 +70,11 @@ const UserItem = ({ user }: { user: User }) => {
             autoComplete="on"
           />
           <input
-            type="text"
             value={hobbies}
-            onChange={(e) =>
-              setHobbies((prev: string[]) => [...prev, e.target.value])
-            }
+            onChange={(e) => setHobbies(e.target.value)}
             className="px-2 py-1 text-black"
-            placeholder="Hobbies"
+            placeholder="Hobbies (separate with commas)"
+            type="text"
           />
           <div className="flex justify-end gap-2">
             <button
@@ -116,6 +115,10 @@ const UserItem = ({ user }: { user: User }) => {
               {user.work_experience}{" "}
               {`${user.work_experience < 1 ? "year" : "years"}`}
             </span>
+          </div>
+          <div className="flex">
+            <span className="w-[200px]">Hobbies:</span>
+            <span>{user.hobbies}</span>
           </div>
           <div className="flex gap-2 justify-end py-2">
             <button
