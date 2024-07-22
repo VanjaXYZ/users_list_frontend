@@ -1,9 +1,10 @@
 import { LockKeyhole } from "lucide-react";
-import React from "react";
+import BackArrow from "./BackArrow";
 
 const SignupForm = () => {
   return (
     <form className="w-1/3 m-auto h-96 mt-20 py-2">
+      <BackArrow />
       <div className="flex justify-center flex-col items-center gap-4">
         <LockKeyhole size={48} />
         <h3 className="text-center text-2xl uppercase antialiased font-semibold">
