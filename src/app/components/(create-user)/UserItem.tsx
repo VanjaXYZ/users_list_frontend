@@ -8,6 +8,7 @@ import { USER_ROLES } from "../(shared)/user_roles";
 const UserItem = ({ user }: { user: User }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [name, setName] = useState(user.name);
+  const [password, setPassword] = useState(user.password);
   const [email, setEmail] = useState(user.email);
   const [age, setAge] = useState(user.age);
   const [job, setJob] = useState(user.job);
@@ -18,6 +19,7 @@ const UserItem = ({ user }: { user: User }) => {
   const handleUpdate = async () => {
     const updatedUser = {
       name,
+      password,
       email,
       age,
       job,
@@ -40,6 +42,16 @@ const UserItem = ({ user }: { user: User }) => {
             className="px-2 py-1 text-black border rounded"
             placeholder="Name"
             autoComplete="on"
+            required
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="px-2 py-1 text-black border rounded"
+            placeholder="Password"
+            autoComplete="on"
+            required
           />
           <input
             type="email"
@@ -48,6 +60,7 @@ const UserItem = ({ user }: { user: User }) => {
             className="px-2 py-1 text-black border rounded"
             placeholder="Email"
             autoComplete="on"
+            required
           />
           <input
             type="number"
@@ -56,6 +69,7 @@ const UserItem = ({ user }: { user: User }) => {
             className="px-2 py-1 text-black border rounded"
             placeholder="Age"
             autoComplete="on"
+            required
           />
           <input
             type="text"
@@ -63,6 +77,7 @@ const UserItem = ({ user }: { user: User }) => {
             onChange={(e) => setJob(e.target.value)}
             className="px-2 py-1 text-black border rounded"
             placeholder="Current job"
+            required
           />
           <input
             type="number"
@@ -71,6 +86,7 @@ const UserItem = ({ user }: { user: User }) => {
             className="px-2 py-1 text-black border rounded"
             placeholder="Work experience"
             autoComplete="on"
+            required
           />
           <input
             value={hobbies}
@@ -78,6 +94,7 @@ const UserItem = ({ user }: { user: User }) => {
             className="px-2 py-1 text-black border rounded"
             placeholder="Hobbies (separate with commas)"
             type="text"
+            required
           />
           <select
             className="px-2 py-1 text-black border rounded"

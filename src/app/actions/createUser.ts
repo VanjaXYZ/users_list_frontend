@@ -6,6 +6,7 @@ export const handleSubmit = async (formData: FormData) => {
   try {
     const data = {
       name: formData.get("name"),
+      password: formData.get("password"),
       email: formData.get("email"),
       age: parseInt(formData.get("age") as string), // Uveri se da age bude broj
       job: formData.get("job"),

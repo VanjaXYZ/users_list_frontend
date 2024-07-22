@@ -26,6 +26,14 @@ const CreateUserForm = () => {
             required
           />
           <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="px-2 py-1 text-black border rounded"
+            autoComplete="on"
+            required
+          />
+          <input
             type="text"
             name="email"
             placeholder="Email"
