@@ -12,8 +12,10 @@ const CreateUserForm = () => {
 
   return (
     <>
-      <h3 className="font-semibold text-xl">Add New User</h3>
       <form ref={ref} action={onSubmit}>
+        <h3 className="font-semibold text-xl w-full text-black text-center pb-2">
+          Add New User
+        </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <input
             type="text"
