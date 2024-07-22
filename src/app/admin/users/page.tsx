@@ -1,7 +1,7 @@
 import React from "react";
-import UsersList from "../components/(create-user)/UsersList";
-import CreateUserForm from "../components/(create-user)/CreateUserForm";
 import { Metadata } from "next";
+import CreateUserForm from "@/app/components/(create-user)/CreateUserForm";
+import UsersList from "@/app/components/(create-user)/UsersList";
 
 export const metadata: Metadata = {
   title: "Users",
