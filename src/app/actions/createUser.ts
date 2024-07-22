@@ -10,8 +10,8 @@ export const handleSubmit = async (formData: FormData) => {
       age: parseInt(formData.get("age") as string), // Uveri se da age bude broj
       job: formData.get("job"),
       work_experience: parseInt(formData.get("work_experience") as string), // Uveri se da age bude broj
-      hobbies: formData.get("hobbies"),
-      role: formData.get("role"),
+      hobbies: formData.get("hobbies") || "",
+      role: formData.get("role") || "USER",
     };
 
     let response = await fetch(`${Config.baseUrl}/users`, {
