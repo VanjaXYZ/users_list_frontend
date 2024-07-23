@@ -2,6 +2,7 @@
 import { handleSubmit } from "@/app/actions/createUser";
 import { useRef } from "react";
 import { USER_ROLES } from "../(shared)/user_roles";
+import LogoutButton from "../(auth)/LoggoutButton";
 
 const CreateUserForm = () => {
   const ref = useRef<HTMLFormElement>() as any;
@@ -11,7 +12,10 @@ const CreateUserForm = () => {
   };
 
   return (
-    <>
+    <div>
+      <div className="flex justify-end">
+        <LogoutButton />
+      </div>
       <form ref={ref} action={onSubmit}>
         <h3 className="font-semibold text-xl w-full text-black text-center pb-2">
           Add New User
@@ -95,7 +99,7 @@ const CreateUserForm = () => {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
