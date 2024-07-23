@@ -7,10 +7,6 @@ import FilterComponent from "../(shared)/FilterComponent";
 const FilteredUsersList = ({ query, usersList }: any) => {
   const [filteredData, setFilteredData] = useState("role");
 
-  useEffect(() => {
-    console.log(filteredData);
-  }, [filteredData]);
-
   const filteredUsers = usersList?.filter((user: any) =>
     user?.[filteredData].toLowerCase().includes(query.toLowerCase())
   );
