@@ -1,8 +1,8 @@
-import React, { Suspense } from "react";
-import { Metadata } from "next";
 import CreateUserForm from "@/app/components/(create-user)/CreateUserForm";
 import UsersList from "@/app/components/(create-user)/UsersList";
 import SearchBar from "@/app/components/(shared)/SearchBar";
+import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Users",

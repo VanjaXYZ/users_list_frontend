@@ -1,22 +1,24 @@
+"use client";
 import { getUsers } from "../../actions/getUsers";
 import { User } from "../../types/userType";
-import UserItem from "./UserItem";
+import FilteredUsersList from "./FilteredUsersList";
+import React, { useState, useEffect } from "react";
 
-const UsersList = async ({ query }: { query: string }) => {
-  const usersList = await getUsers();
+const UsersList = ({ query }: { query: string }) => {
+  const [usersList, setUsersList] = useState<User[]>([]);
 
-  const filteredUsers = usersList?.filter((user: User) =>
-    user?.name.toLowerCase().includes(query.toLowerCase())
-  );
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const users = await getUsers();
+      setUsersList(users);
+    };
+
+    fetchUsers();
+  }, []);
 
   return (
     <div className="w-full grid place-items-center">
-      <ul className="w-2/5 divide-y-2 space-y-2">
-        {filteredUsers?.map((user: User) => (
-          <UserItem user={user} key={user.id} />
-        ))}
-      </ul>
-      {!filteredUsers?.length && "User doesn't exists..."}
+      <FilteredUsersList query={query} usersList={usersList} />
     </div>
   );
 };
