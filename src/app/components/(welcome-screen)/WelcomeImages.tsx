@@ -4,13 +4,15 @@ import Image from "next/image";
 
 const WelcomeImages = () => {
   return (
-    <Image
-      src={PeopleGroup}
-      alt="Group of people"
-      width={800}
-      height={800}
-      className="max-w-[750px]"
-    />
+    <div className="flex justify-center items-center">
+      <Image
+        src={PeopleGroup}
+        alt="Group of people"
+        width={800}
+        height={800}
+        className="max-w-[320px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-[750px]"
+      />
+    </div>
   );
 };
 

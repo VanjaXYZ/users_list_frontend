@@ -21,7 +21,7 @@ const UsersPage = async ({
   const filterParam = searchParams?.filter || "name"; // if there is no filter chosen add 'name' value to it as default
 
   return (
-    <div className="flex flex-col items-center p-12 gap-8 w-full">
+    <div className="flex flex-col items-center p-12 gap-8 w-full border">
       <CreateUserForm />
       <SearchBar placeholder="Search users..." />
       <Suspense key={query} fallback={"Loading"}>
