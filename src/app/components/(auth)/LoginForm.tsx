@@ -5,7 +5,7 @@ import { login } from "@/app/actions/login";
 
 const LoginForm = async () => {
   return (
-    <form className="w-1/3 m-auto h-96 mt-20 py-2" action={login}>
+    <form className="w-2/3 sm:w-1/3 m-auto h-96 mt-20 p-2" action={login}>
       <BackArrow />
       <div className="flex justify-center flex-col items-center gap-4">
         <LockKeyhole size={48} />
