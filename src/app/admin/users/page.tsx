@@ -1,17 +1,30 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Metadata } from "next";
 import CreateUserForm from "@/app/components/(create-user)/CreateUserForm";
 import UsersList from "@/app/components/(create-user)/UsersList";
+import SearchBar from "@/app/components/(shared)/SearchBar";
 
 export const metadata: Metadata = {
   title: "Users",
 };
 
-const UsersPage = () => {
+const UsersPage = async ({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
+}) => {
+  const query = searchParams?.query || "";
+
   return (
     <div className="flex flex-col items-center p-12 gap-8 w-full">
       <CreateUserForm />
-      <UsersList />
+      <SearchBar placeholder="Search users..." />
+      <Suspense key={query} fallback={"Loading"}>
+        <UsersList query={query} />
+      </Suspense>
     </div>
   );
 };
