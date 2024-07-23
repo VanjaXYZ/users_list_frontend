@@ -12,7 +12,10 @@ const SignupForm = () => {
     }
   };
   return (
-    <form className="w-1/3 m-auto h-96 mt-20 py-2" action={registerUser}>
+    <form
+      className="w-2/3 lg:w-1/3 m-auto h-96 mt-20 p-2"
+      action={registerUser}
+    >
       <BackArrow />
       <div className="flex justify-center flex-col items-center gap-4">
         <LockKeyhole size={48} />
@@ -20,7 +23,7 @@ const SignupForm = () => {
           Welcome
         </h3>
       </div>
-      <div className="grid grid-cols-2 gap-2 py-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 border w-full py-4">
         <input
           type="text"
           placeholder="Full name"
