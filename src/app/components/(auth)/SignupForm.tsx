@@ -1,10 +1,18 @@
+import { handleRegisterUser } from "@/app/actions/createUser";
 import { LockKeyhole } from "lucide-react";
 import BackArrow from "./BackArrow";
-import { handleSubmit } from "@/app/actions/createUser";
+import { redirect } from "next/navigation";
 
 const SignupForm = () => {
+  const registerUser = async (formData: FormData) => {
+    "use server";
+    const register = await handleRegisterUser(formData);
+    if (register.success) {
+      redirect("/auth/login");
+    }
+  };
   return (
-    <form className="w-1/3 m-auto h-96 mt-20 py-2" action={handleSubmit}>
+    <form className="w-1/3 m-auto h-96 mt-20 py-2" action={registerUser}>
       <BackArrow />
       <div className="flex justify-center flex-col items-center gap-4">
         <LockKeyhole size={48} />

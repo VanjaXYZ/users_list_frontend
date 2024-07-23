@@ -1,13 +1,13 @@
 "use client";
-import { handleSubmit } from "@/app/actions/createUser";
 import { useRef } from "react";
 import { USER_ROLES } from "../(shared)/user_roles";
 import LogoutButton from "../(auth)/LoggoutButton";
+import { handleCreateUser } from "@/app/actions/createUser";
 
 const CreateUserForm = () => {
   const ref = useRef<HTMLFormElement>() as any;
   const onSubmit = async (formData: FormData) => {
-    await handleSubmit(formData);
+    await handleCreateUser(formData);
     ref.current.reset();
   };
 
