@@ -32,13 +32,18 @@ const FilterComponent = () => {
     replace(`${pathname}?${filterParams.toString()}`);
   };
 
+  const handleRemoveFilter = () => {
+    const filterParams = new URLSearchParams(searchParams);
+    filterParams.delete("filter");
+  };
+
   return (
     <select
       className="px-2 py-1 text-black border rounded w-fit"
       onChange={(e) => handleSelectFilter(e.target.value)}
-      defaultValue={searchParams.get("filter")?.toString()}
+      defaultValue={searchParams.get("filter")?.toString() || ""}
     >
-      <option value="" disabled className="italic">
+      <option value="" className="italic" onClick={handleRemoveFilter}>
         Select filter
       </option>
       {filterData.map(({ filterBy, value }) => (
