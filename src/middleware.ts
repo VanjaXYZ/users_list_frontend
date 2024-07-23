@@ -11,7 +11,7 @@ export async function middleware(request: NextRequest) {
   // Lista zaštićenih ruta
   const protectedRoutes = ["/admin"];
 
-  // Ako korisnik pokušava da pristupi zaštićenoj ruti bez tokena, preusmeri ga na login stranicu
+  // Ako korisnik pokušava da pristupi zaštićenoj ruti bez tokena, preusmjeri ga na login stranicu
   if (
     protectedRoutes.some((route) =>
       request.nextUrl.pathname.startsWith(route)
@@ -26,7 +26,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
-  // Ako je korisnik autentifikovan ili pristupa nezaštićenoj ruti, dozvoli nastavak zahteva
+  // Ako je korisnik autentifikovan ili pristupa nezaštićenoj ruti, dozvoli nastavak zahtjeva
   return NextResponse.next();
 }
 

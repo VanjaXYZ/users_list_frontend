@@ -69,6 +69,14 @@ const SignupForm = () => {
           autoComplete="on"
           required
         />
+        <input
+          type="text"
+          placeholder="Hobbies (separate with commas)"
+          className="px-2 py-1 text-black border rounded"
+          name="hobbies"
+          autoComplete="on"
+          required
+        />
       </div>
       <button
         type="submit"
