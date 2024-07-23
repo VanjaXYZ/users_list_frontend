@@ -30,7 +30,6 @@ export const handleCreateUser = async (formData: FormData) => {
     if (!response.ok) {
       throw new Error(result.message || "Something went wrong");
     }
-    console.log(result);
     return result;
   } catch (error: any) {
     console.error(error);

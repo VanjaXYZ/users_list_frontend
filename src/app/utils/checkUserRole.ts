@@ -13,7 +13,5 @@ export const fetchUserData = async () => {
     },
   });
   const result = await data.json();
-
-  console.log("User data: ", result);
   return result;
 };

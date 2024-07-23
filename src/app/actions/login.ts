@@ -26,7 +26,7 @@ export const login = async (formData: FormData): Promise<any> => {
     const token = response.text();
     cookieStore.set("token", (await token).toString());
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
   redirect("/admin/users"); //needs to be used outside of try/catch method
 };
