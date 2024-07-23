@@ -8,9 +8,9 @@ export const handleSubmit = async (formData: FormData) => {
       name: formData.get("name"),
       password: formData.get("password"),
       email: formData.get("email"),
-      age: parseInt(formData.get("age") as string), // Uveri se da age bude broj
+      age: parseInt(formData.get("age") as string),
       job: formData.get("job"),
-      work_experience: parseInt(formData.get("work_experience") as string), // Uveri se da age bude broj
+      work_experience: parseInt(formData.get("work_experience") as string),
       hobbies: formData.get("hobbies") || "",
       role: formData.get("role") || "USER",
     };
