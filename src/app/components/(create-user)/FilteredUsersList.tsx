@@ -9,7 +9,7 @@ const FilteredUsersList = ({ query, filter, usersList }: any) => {
   return (
     <div className="flex flex-col">
       <FilterComponent />
-      <ul className="w-full divide-y-2 space-y-2">
+      <ul className=" divide-y-2 space-y-2">
         {filteredUsers?.map((user: User) => (
           <UserItem user={user} key={user.id} />
         ))}

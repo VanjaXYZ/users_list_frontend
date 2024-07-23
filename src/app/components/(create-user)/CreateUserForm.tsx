@@ -12,7 +12,7 @@ const CreateUserForm = () => {
   };
 
   return (
-    <div>
+    <div className="w-full">
       <div className="flex justify-end">
         <LogoutButton />
       </div>

@@ -11,7 +11,7 @@ const UsersList = async ({
   const usersList = await getUsers();
 
   return (
-    <div className="w-full grid place-items-center">
+    <div className="">
       <FilteredUsersList query={query} filter={filter} usersList={usersList} />
     </div>
   );
