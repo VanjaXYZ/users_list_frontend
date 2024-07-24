@@ -17,6 +17,10 @@ const FilterComponent = () => {
       value: "role",
     },
     {
+      filterBy: "Age",
+      value: "age",
+    },
+    {
       filterBy: "Job",
       value: "job",
     },
