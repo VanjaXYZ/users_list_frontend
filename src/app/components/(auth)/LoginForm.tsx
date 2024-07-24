@@ -2,6 +2,7 @@ import { LockKeyhole } from "lucide-react";
 import React from "react";
 import BackArrow from "./BackArrow";
 import { login } from "@/app/actions/login";
+import SubmitButton from "../(shared)/SubmitButton";
 
 const LoginForm = async () => {
   return (
@@ -16,7 +17,7 @@ const LoginForm = async () => {
       <div className="flex flex-col justify-center items-center gap-4 py-4">
         <input
           placeholder="Full name"
-          className="px-2 py-1 text-black border rounded"
+          className="px-2 py-1 text-black border rounded w-full"
           name="username"
           autoComplete="on"
           required
@@ -24,17 +25,12 @@ const LoginForm = async () => {
         <input
           type="password"
           placeholder="Password"
-          className="px-2 py-1 text-black border rounded"
+          className="px-2 py-1 text-black border rounded w-full"
           name="password"
           autoComplete="on"
           required
         />
-        <button
-          type="submit"
-          className="border rounded bg-teal-700 text-white font-bold uppercase tracking-widest px-4 py-1 hover:bg-teal-500"
-        >
-          Login
-        </button>
+        <SubmitButton>Login</SubmitButton>
       </div>
     </form>
   );
