@@ -4,9 +4,11 @@ import FilteredUsersList from "./FilteredUsersList";
 const UsersList = async ({
   query,
   filter,
+  currentPage,
 }: {
   query: string;
   filter: string;
+  currentPage: number;
 }) => {
   const usersList = await getUsers();
 
