@@ -10,10 +10,14 @@ const FilteredUsersList = ({ query, filter, usersList }: any) => {
       return user?.[filter]?.toString().includes(query.toLowerCase());
     }
   });
+
   return (
     <div className="flex flex-col">
       <FilterComponent />
-      <ul className=" divide-y-2 space-y-2">
+      <p className="py-2 underline">
+        Total users found: <strong>{filteredUsers?.length}</strong>
+      </p>
+      <ul className="divide-y-2 space-y-2">
         {filteredUsers?.map((user: User) => (
           <UserItem user={user} key={user.id} />
         ))}
