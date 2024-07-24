@@ -3,9 +3,13 @@ import FilterComponent from "../(shared)/FilterComponent";
 import UserItem from "./UserItem";
 
 const FilteredUsersList = ({ query, filter, usersList }: any) => {
-  const filteredUsers = usersList?.filter((user: any) =>
-    user?.[filter].toLowerCase().includes(query.toLowerCase())
-  );
+  const filteredUsers = usersList?.filter((user: any) => {
+    if (typeof user?.[filter] === "string") {
+      return user?.[filter]?.toLowerCase().includes(query.toLowerCase());
+    } else if (typeof user?.[filter] === "number") {
+      return user?.[filter]?.toString().includes(query.toLowerCase());
+    }
+  });
   return (
     <div className="flex flex-col">
       <FilterComponent />
