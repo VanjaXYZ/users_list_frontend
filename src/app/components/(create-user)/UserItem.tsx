@@ -128,38 +128,44 @@ const UserItem = ({ user }: { user: User }) => {
           </div>
         </div>
       ) : (
-        <>
-          <div className="flex">
-            <span className="w-[200px] font-semibold">Role:</span>
+        <div className="space-y-2">
+          <div className="flex flex-col sm:flex-row">
+            <span className="w-[200px] sm:w-[300px] font-semibold">Role:</span>
             <span>{user.role}</span>
           </div>
-          <div className="flex">
-            <span className="w-[200px] font-semibold">Name:</span>
+          <div className="flex flex-col sm:flex-row">
+            <span className="w-[200px] sm:w-[300px] font-semibold">Name:</span>
             <span>{user.name}</span>
           </div>
-          <div className="flex">
-            <span className="w-[200px] font-semibold">Email:</span>
+          <div className="flex flex-col sm:flex-row">
+            <span className="w-[200px] sm:w-[300px] font-semibold">Email:</span>
             <span>{user.email}</span>
           </div>
-          <div className="flex">
-            <span className="w-[200px] font-semibold">Age:</span>
+          <div className="flex flex-col sm:flex-row">
+            <span className="w-[200px] sm:w-[300px] font-semibold">Age:</span>
             <span>
               {user.age} {`${user.age <= 1 ? "year" : "years"}`}
             </span>
           </div>
-          <div className="flex">
-            <span className="w-[200px] font-semibold">Current job:</span>
+          <div className="flex flex-col sm:flex-row">
+            <span className="w-[200px] sm:w-[300px] font-semibold">
+              Current job:
+            </span>
             <span>{user.job}</span>
           </div>
-          <div className="flex">
-            <span className="w-[200px] font-semibold">Work experience:</span>
+          <div className="flex flex-col sm:flex-row">
+            <span className="w-[200px] sm:w-[300px] font-semibold">
+              Work experience:
+            </span>
             <span>
               {user.work_experience}{" "}
               {`${user.work_experience <= 1 ? "year" : "years"}`}
             </span>
           </div>
-          <div className="flex">
-            <span className="w-[200px] font-semibold">Hobbies:</span>
+          <div className="flex flex-col sm:flex-row">
+            <span className="w-[200px] sm:w-[300px] font-semibold">
+              Hobbies:
+            </span>
             <span>{user.hobbies}</span>
           </div>
           <div className="flex gap-2 justify-end py-2">
@@ -176,7 +182,7 @@ const UserItem = ({ user }: { user: User }) => {
               Remove
             </button>
           </div>
-        </>
+        </div>
       )}
     </li>
   );
