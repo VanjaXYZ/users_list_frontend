@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { USER_ROLES } from "../(shared)/user_roles";
 import LogoutButton from "../(auth)/LoggoutButton";
 import { handleCreateUser } from "@/app/actions/createUser";
+import SubmitButton from "../(shared)/SubmitButton";
 
 const CreateUserForm = () => {
   const ref = useRef<HTMLFormElement>() as any;
@@ -91,12 +92,7 @@ const CreateUserForm = () => {
           </select>
         </div>
         <div className="py-2">
-          <button
-            type="submit"
-            className="border rounded bg-teal-700 text-white font-bold uppercase tracking-widest px-4 py-1 w-full"
-          >
-            Submit
-          </button>
+          <SubmitButton>Submit</SubmitButton>
         </div>
       </form>
     </div>
