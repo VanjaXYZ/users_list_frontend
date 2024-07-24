@@ -14,7 +14,9 @@ const FilteredUsersList = ({ query, filter, usersList }: any) => {
           <UserItem user={user} key={user.id} />
         ))}
       </ul>
-      {!filteredUsers?.length && "User doesn't exist..."}
+      {!filteredUsers?.length && (
+        <p className="py-4 text-lg">User doesn't exists...</p>
+      )}
     </div>
   );
 };
