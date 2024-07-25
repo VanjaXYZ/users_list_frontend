@@ -5,16 +5,23 @@ const UsersList = async ({
   query,
   filter,
   currentPage,
+  sortBy,
 }: {
   query: string;
   filter: string;
   currentPage: number;
+  sortBy: string;
 }) => {
   const usersList = await getUsers();
 
   return (
     <div className="">
-      <FilteredUsersList query={query} filter={filter} usersList={usersList} />
+      <FilteredUsersList
+        query={query}
+        sortBy={sortBy}
+        filter={filter}
+        usersList={usersList}
+      />
     </div>
   );
 };
