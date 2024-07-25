@@ -1,19 +1,25 @@
 import { User } from "@/app/types/userType";
 import FilterComponent from "../(shared)/FilterComponent";
 import UserItem from "./UserItem";
+import SortUsers from "../(shared)/SortUsers";
+import { filterUsers } from "../../utils/filterUsers";
 
-const FilteredUsersList = ({ query, filter, usersList }: any) => {
-  const filteredUsers = usersList?.filter((user: any) => {
-    if (typeof user?.[filter] === "string") {
-      return user?.[filter]?.toLowerCase().includes(query.toLowerCase());
-    } else if (typeof user?.[filter] === "number") {
-      return user?.[filter]?.toString().includes(query.toLowerCase());
-    }
-  });
+const FilteredUsersList = ({ query, filter, usersList, sortBy }: any) => {
+  const packedData = {
+    query: query,
+    filter: filter,
+    usersList: usersList,
+    sortBy: sortBy,
+  };
+
+  const filteredUsers = filterUsers(packedData);
 
   return (
     <div className="flex flex-col">
-      <FilterComponent />
+      <div className="flex gap-2 flex-col sm:flex-row">
+        <FilterComponent />
+        <SortUsers />
+      </div>
       <p className="py-2 underline">
         Total users found: <strong>{filteredUsers?.length}</strong>
       </p>
@@ -23,7 +29,7 @@ const FilteredUsersList = ({ query, filter, usersList }: any) => {
         ))}
       </ul>
       {!filteredUsers?.length && (
-        <p className="py-4 text-lg">User doesn't exists...</p>
+        <p className="py-4 text-lg">User does not exists...</p>
       )}
     </div>
   );
