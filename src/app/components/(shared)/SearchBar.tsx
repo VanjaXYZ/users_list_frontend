@@ -19,14 +19,14 @@ const SearchBar = ({ placeholder }: { placeholder: string }) => {
     replace(`${pathname}?${params.toString()}`);
   }, 500);
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <div className="absolute left-1 border-r-2 top-1.5 px-1">
         <SearchIcon color="lightgray" />
       </div>
       <input
         type="text"
         placeholder={placeholder}
-        className="ps-12 py-1 text-black border rounded"
+        className="ps-12 py-1 text-black border rounded w-full sm:w-min"
         onChange={(e) => {
           handleSearch(e.target.value);
         }}
