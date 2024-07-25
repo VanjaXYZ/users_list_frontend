@@ -9,7 +9,7 @@ export async function middleware(request: NextRequest) {
   const user = await fetchUserData();
 
   // Lista zaštićenih ruta
-  const protectedRoutes = ["/admin"];
+  const protectedRoutes = ["/admin", "/home"];
 
   // Ako korisnik pokušava da pristupi zaštićenoj ruti bez tokena, preusmjeri ga na login stranicu
   if (
@@ -33,5 +33,5 @@ export async function middleware(request: NextRequest) {
 // Konfiguracija middleware-a za određene rute
 export const config = {
   //   matcher: ['/dashboard/:path*', '/profile/:path*', '/settings/:path*'],
-  matcher: ["/admin/:path*"],
+  matcher: ["/admin/:path*", "/home/:path*"],
 };

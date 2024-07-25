@@ -28,5 +28,5 @@ export const login = async (formData: FormData): Promise<any> => {
   } catch (error) {
     console.error(error);
   }
-  redirect("/admin/users"); //needs to be used outside of try/catch method
+  redirect("/home"); //needs to be used outside of try/catch method
 };
