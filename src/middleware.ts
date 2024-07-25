@@ -9,7 +9,7 @@ export async function middleware(request: NextRequest) {
   const user = await fetchUserData();
 
   // Lista zaštićenih ruta
-  const protectedRoutes = ["/admin", "/home"];
+  const protectedRoutes = ["/admin"];
 
   // Ako korisnik pokušava da pristupi zaštićenoj ruti bez tokena, preusmjeri ga na login stranicu
   if (
@@ -23,7 +23,7 @@ export async function middleware(request: NextRequest) {
 
   // Ako korisnik pokusava da pristupi ruti koja je namijenjena samo za administratore, preusmjeri ga na home page
   if (request.nextUrl.pathname.startsWith("/admin") && user?.role !== "ADMIN") {
-    return NextResponse.redirect(new URL("/", request.url));
+    return NextResponse.redirect(new URL("/home", request.url));
   }
 
   // Ako je korisnik autentifikovan ili pristupa nezaštićenoj ruti, dozvoli nastavak zahtjeva
