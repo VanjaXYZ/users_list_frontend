@@ -2,7 +2,7 @@ import ActionButtons from "./ActionButtons";
 
 const WelcomeMessage = () => {
   return (
-    <div className="space-y-1 md:space-y-10 lg:p-20 p-2">
+    <div className="space-y-1 md:space-y-10 lg:p-20 p-2 flex flex-col justify-center">
       <h1 className="text-xl md:text-4xl font-semibold tracking-wider p-1 text-center">
         Welcome to the Official User Registrator
       </h1>
