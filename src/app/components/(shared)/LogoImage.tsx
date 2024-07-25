@@ -8,7 +8,7 @@ const LogoImage = () => {
       width={75}
       height={75}
       alt="Logo image"
-      className="text-white"
+      className="object-cover"
     />
   );
 };
