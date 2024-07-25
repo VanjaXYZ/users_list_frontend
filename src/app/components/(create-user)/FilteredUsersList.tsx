@@ -3,8 +3,9 @@ import FilterComponent from "../(shared)/FilterComponent";
 import UserItem from "./UserItem";
 import SortUsers from "../(shared)/SortUsers";
 import { filterUsers } from "../../utils/filterUsers";
+import { fetchUserData } from "@/app/utils/checkUserRole";
 
-const FilteredUsersList = ({ query, filter, usersList, sortBy }: any) => {
+const FilteredUsersList = async ({ query, filter, usersList, sortBy }: any) => {
   const packedData = {
     query: query,
     filter: filter,
@@ -13,6 +14,8 @@ const FilteredUsersList = ({ query, filter, usersList, sortBy }: any) => {
   };
 
   const filteredUsers = filterUsers(packedData);
+
+  const userRole = await fetchUserData();
 
   return (
     <div className="flex flex-col">
@@ -25,7 +28,7 @@ const FilteredUsersList = ({ query, filter, usersList, sortBy }: any) => {
       </p>
       <ul className="divide-y-2 space-y-2">
         {filteredUsers?.map((user: User) => (
-          <UserItem user={user} key={user.id} />
+          <UserItem user={user} key={user.id} userRole={userRole?.role} />
         ))}
       </ul>
       {!filteredUsers?.length && (

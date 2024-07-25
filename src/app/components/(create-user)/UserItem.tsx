@@ -5,7 +5,7 @@ import { User } from "@/app/types/userType";
 import { useState } from "react";
 import { USER_ROLES } from "../(shared)/user_roles";
 
-const UserItem = ({ user }: { user: User }) => {
+const UserItem = ({ user, userRole }: { user: User; userRole: string }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [name, setName] = useState(user.name);
   const [password, setPassword] = useState(user.password);
@@ -30,6 +30,8 @@ const UserItem = ({ user }: { user: User }) => {
     await handleUpdateUser(user.id, updatedUser);
     setIsEditing(false);
   };
+
+  const isAdmin = userRole === "ADMIN";
 
   return (
     <li key={user.id} className="w-full flex flex-col py-2">
@@ -168,20 +170,22 @@ const UserItem = ({ user }: { user: User }) => {
             </span>
             <span>{user.hobbies}</span>
           </div>
-          <div className="flex gap-2 justify-end py-2">
-            <button
-              className="border rounded bg-teal-700 text-white font-bold uppercase tracking-widest px-4 py-1"
-              onClick={() => setIsEditing(true)}
-            >
-              Update
-            </button>
-            <button
-              className="border rounded bg-teal-700 text-white font-bold uppercase tracking-widest px-4 py-1"
-              onClick={() => handleDeleteUser(user.id)}
-            >
-              Remove
-            </button>
-          </div>
+          {isAdmin && (
+            <div className="flex gap-2 justify-end py-2">
+              <button
+                className="border rounded bg-teal-700 text-white font-bold uppercase tracking-widest px-4 py-1"
+                onClick={() => setIsEditing(true)}
+              >
+                Update
+              </button>
+              <button
+                className="border rounded bg-teal-700 text-white font-bold uppercase tracking-widest px-4 py-1"
+                onClick={() => handleDeleteUser(user.id)}
+              >
+                Remove
+              </button>
+            </div>
+          )}
         </div>
       )}
     </li>
