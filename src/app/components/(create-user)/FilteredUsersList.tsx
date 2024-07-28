@@ -46,7 +46,7 @@ const FilteredUsersList = ({ query, filter, usersList, sortBy }: any) => {
         <SortUsers />
       </div>
       <p className="py-2 underline">
-        Total users found: <strong>{paginatedUsers?.length}</strong>
+        Total users found: <strong>{filteredUsers?.length}</strong>
       </p>
       <ul className="divide-y-2 space-y-2">
         {paginatedUsers?.map((user: User) => (
