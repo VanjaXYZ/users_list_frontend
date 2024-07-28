@@ -15,6 +15,12 @@ const Pagination = ({
   return (
     <nav className="w-full py-2">
       <ul className="flex w-full justify-center">
+        <button
+          className={`px-6 text-xl flex justify-center items-center disabled:text-neutral-300`}
+          disabled={currentPage === 1}
+        >
+          {"<<"}
+        </button>
         {pageNumbers.map((pageNumber: any) => (
           <li key={pageNumber} className="w-10 h-10 ">
             <Link
@@ -30,6 +36,12 @@ const Pagination = ({
             </Link>
           </li>
         ))}
+        <button
+          className={`px-6 text-xl flex justify-center items-center disabled:text-neutral-300`}
+          disabled={currentPage === Math.ceil(totalUsers / usersPerPage)}
+        >
+          {">>"}
+        </button>
       </ul>
     </nav>
   );
