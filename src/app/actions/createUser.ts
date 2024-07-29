@@ -1,7 +1,6 @@
 "use server";
 import { revalidatePath } from "next/cache";
 import { Config } from "../../../Config";
-import { redirect } from "next/navigation";
 
 export const handleCreateUser = async (formData: FormData) => {
   try {
@@ -33,7 +32,6 @@ export const handleCreateUser = async (formData: FormData) => {
     return result;
   } catch (error: any) {
     console.error(error);
-    throw new Error(error.message);
   }
 };
 export const handleRegisterUser = async (formData: FormData) => {
@@ -65,6 +63,5 @@ export const handleRegisterUser = async (formData: FormData) => {
     return result;
   } catch (error: any) {
     console.error("Error during user registration:", error);
-    throw new Error(error.message);
   }
 };
