@@ -23,7 +23,7 @@ const SignupForm = () => {
           Welcome
         </h3>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 border w-full py-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full py-4">
         <input
           type="text"
           placeholder="Full name"
