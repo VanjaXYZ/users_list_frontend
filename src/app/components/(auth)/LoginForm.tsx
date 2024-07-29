@@ -1,12 +1,26 @@
+"use client";
 import { LockKeyhole } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import BackArrow from "./BackArrow";
 import { login } from "@/app/actions/login";
 import SubmitButton from "../(shared)/SubmitButton";
 
-const LoginForm = async () => {
+const LoginForm = () => {
+  const [error, setError] = useState("");
+  const loginUser = async (event: any) => {
+    try {
+      const response = await login(event as FormData);
+      if (!response?.success) {
+        setError(response?.message);
+      }
+      return response;
+    } catch (error) {
+      console.log("Error: ", error);
+      return;
+    }
+  };
   return (
-    <form className="w-2/3 sm:w-1/3 m-auto h-96 mt-20 p-2" action={login}>
+    <form className="w-2/3 sm:w-1/3 m-auto h-96 mt-20 p-2" action={loginUser}>
       <BackArrow />
       <div className="flex justify-center flex-col items-center gap-4">
         <LockKeyhole size={48} />
@@ -32,6 +46,11 @@ const LoginForm = async () => {
         />
         <SubmitButton>Login</SubmitButton>
       </div>
+      {error && (
+        <p className="text-red-500 font-semibold antialiased text-center">
+          {error}
+        </p>
+      )}
     </form>
   );
 };
