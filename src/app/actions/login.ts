@@ -20,13 +20,16 @@ export const login = async (formData: FormData): Promise<any> => {
       }),
     });
     if (!response.ok) {
-      throw new Error("There was an issue proccessing your request...");
+      throw new Error("Login failed...");
     }
 
     const token = response.text();
     cookieStore.set("token", (await token).toString());
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
+    return { success: false, message: error.message };
   }
-  redirect("/home"); //needs to be used outside of try/catch method
+  if (cookieStore.get("token")) {
+    redirect("/home"); //needs to be used outside of try/catch method
+  }
 };
