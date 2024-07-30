@@ -14,9 +14,8 @@ const LoginForm = () => {
         setError(response?.message);
       }
       return response;
-    } catch (error) {
+    } catch (error: any) {
       console.log("Error: ", error);
-      return;
     }
   };
   return (
